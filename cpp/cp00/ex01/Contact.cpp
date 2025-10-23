@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:03:06 by achanek           #+#    #+#             */
-/*   Updated: 2025/10/21 14:07:18 by achanek          ###   ########.fr       */
+/*   Updated: 2025/10/21 14:46:10 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,3 +23,5 @@ std::string Contact::get_last_name() { return last_name; };
 std::string Contact::get_nick_name() { return nick_name; };
 std::string Contact::get_phone_number() { return phone_number; };
 std::string Contact::get_darkest_secret() { return darkest_secret; };
+
+

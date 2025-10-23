@@ -5,7 +5,7 @@ CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
 RM          = rm -f
 SRC         = main.cpp \
               Contact.cpp \
-              PhoneBookt.cpp
+              PhoneBook.cpp
 OBJ         = $(SRC:.cpp=.o)
 GREEN       = \033[0;32m
 YELLOW      = \033[0;33m

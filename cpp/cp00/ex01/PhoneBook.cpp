@@ -6,25 +6,20 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:03:47 by achanek           #+#    #+#             */
-/*   Updated: 2025/10/21 16:17:27 by achanek          ###   ########.fr       */
+/*   Updated: 2025/10/23 11:59:52 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook()
-    : size(0), next(0)
-{}
-
-void PhoneBook::newcontact(Contact &c)
 {
-    contacts[next] = c;
-    if (size < 8)
-        size++;
-    next = (next + 1) % 8;
+    size = 0;
+    next = 0;
 }
 
-static  std::string correct_format(std::string &s) {
+
+static  std::string correct_format(const std::string &s) {
     if (s.length() > 10)
         return s.substr(0, 9) + ".";
     return s;
@@ -45,9 +40,36 @@ void PhoneBook::print_all_contact()
     }
 }
 
+void PhoneBook::add_contact()
+{   
+    std::string f_name;
+    std::string l_name;
+    std::string n_name;
+    std::string p_number;
+    std::string d_secret;
+    std::cout << "first name : ";
+    std::getline(std::cin,f_name);
+    std::cout << "last name : ";
+    std::getline(std::cin,l_name);
+    std::cout << "nack name : ";
+    std::getline(std::cin,n_name);
+    std::cout << "phone nunber : ";
+    std::getline(std::cin,p_number);
+    std::cout << "darkest secret";
+    std::getline(std::cin,d_secret);
+    contacts[next].set_first_name(f_name);
+    contacts[next].set_last_name(l_name);
+    contacts[next].set_nick_name(n_name);
+    contacts[next].set_phone_number(p_number);
+    contacts[next].set_darkest_secret(d_secret);
+    next = next % 8 + 1;
+    if (size < 8)
+        size++;
+}
+
 void PhoneBook::print_cantact(int i)
 {
-    if (i < 0 || i > 8)
+    if (i < 0 || i >= size)
         std::cout << "invalide index\n";
     std::cout << contacts[i].get_first_name() << std::endl
               << contacts[i].get_last_name() << std::endl
@@ -55,6 +77,4 @@ void PhoneBook::print_cantact(int i)
               << contacts[i].get_phone_number() << std::endl
               << contacts[i].get_darkest_secret() << std::endl;
 }
-
-int PhoneBook::get_size() { return size;};
 

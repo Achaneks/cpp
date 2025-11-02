@@ -6,12 +6,13 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:03:14 by achanek           #+#    #+#             */
-/*   Updated: 2025/10/21 14:56:44 by achanek          ###   ########.fr       */
+/*   Updated: 2025/10/28 12:54:57 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
+
 
 #include <string>
 

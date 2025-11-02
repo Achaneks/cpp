@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 13:16:05 by achanek           #+#    #+#             */
-/*   Updated: 2025/10/28 14:29:28 by achanek          ###   ########.fr       */
+/*   Updated: 2025/10/28 14:37:15 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,18 @@ int	Account::getTotalAmount( void ){return (_totalAmount);}
 int	Account::getNbDeposits( void ){return (_totalNbDeposits);}
 int	Account::getNbWithdrawals( void ){ return (_totalNbWithdrawals);}
 
+void    Account::_displayTimestamp( void )
+{
+    
+}
+
 void	Account::displayAccountsInfos( void )
 {
     
 }
 
-Account::Account( int initial_deposit )
+Account::Account( int initial_deposit ) : _nbAccounts(),_totalAmount(initial_deposit),_totalNbDeposits(0),_totalNbWithdrawals(0);
 {
-   _nbAccounts++;
-   _totalAmount = initial_deposit;
-   _totalNbDeposits = 1;
-   _totalNbWithdrawals = 0;
    
 }
 Account::~Account( void )

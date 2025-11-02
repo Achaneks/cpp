@@ -6,11 +6,12 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:03:47 by achanek           #+#    #+#             */
-/*   Updated: 2025/10/23 11:59:52 by achanek          ###   ########.fr       */
+/*   Updated: 2025/10/28 11:02:09 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <iomanip>
 
 PhoneBook::PhoneBook()
 {
@@ -27,16 +28,17 @@ static  std::string correct_format(const std::string &s) {
 
 void PhoneBook::print_all_contact()
 {
-    std::cout   << "Indix"      <<  '|'
-                << "First Name" <<  '|'
-                << "Last Name"  <<  '|'
-                << "Nickname"   <<  '|' << std::endl;
+    std::cout   << std::setw(10) <<"Indix"      <<  '|'
+                << std::setw(10) <<"First Name" <<  '|'
+                << std::setw(10) <<"Last Name"  <<  '|'
+                << std::setw(10) <<"Nickname"   << 
+                std::endl;
     for (int i = 0; i < size ;i++)
     {
-        std::cout   << (i + 1)                                          << "|"
-                    << correct_format(contacts[i].get_first_name())     << '|'
-                    << correct_format(contacts[i].get_last_name())      << '|'
-                    << correct_format(contacts[i].get_darkest_secret()) << std::endl;
+        std::cout   << std::setw(10) <<(i + 1)                                          << "|"
+                    << std::setw(10) <<correct_format(contacts[i].get_first_name())     << '|'
+                    << std::setw(10) <<correct_format(contacts[i].get_last_name())      << '|'
+                    << std::setw(10) <<correct_format(contacts[i].get_darkest_secret()) << std::endl;
     }
 }
 
@@ -47,15 +49,15 @@ void PhoneBook::add_contact()
     std::string n_name;
     std::string p_number;
     std::string d_secret;
-    std::cout << "first name : ";
+    std::cout << "First name : ";
     std::getline(std::cin,f_name);
-    std::cout << "last name : ";
+    std::cout << "Last name : ";
     std::getline(std::cin,l_name);
-    std::cout << "nack name : ";
+    std::cout << "Nickname : ";
     std::getline(std::cin,n_name);
-    std::cout << "phone nunber : ";
+    std::cout << "Phone nunber : ";
     std::getline(std::cin,p_number);
-    std::cout << "darkest secret";
+    std::cout << "Darkest secret : ";
     std::getline(std::cin,d_secret);
     contacts[next].set_first_name(f_name);
     contacts[next].set_last_name(l_name);
@@ -70,11 +72,29 @@ void PhoneBook::add_contact()
 void PhoneBook::print_cantact(int i)
 {
     if (i < 0 || i >= size)
+    {
         std::cout << "invalide index\n";
-    std::cout << contacts[i].get_first_name() << std::endl
-              << contacts[i].get_last_name() << std::endl
-              << contacts[i].get_nick_name() << std::endl
-              << contacts[i].get_phone_number() << std::endl
-              << contacts[i].get_darkest_secret() << std::endl;
+        return ;
+    }
+    std::cout << "First name : "    << contacts[i].get_first_name() << std::endl
+              << "Last name : "     << contacts[i].get_last_name() << std::endl
+              << "Nickname : "      << contacts[i].get_nick_name() << std::endl
+              << "Phone number : "  << contacts[i].get_phone_number() << std::endl
+              << "Darkest secret : "<< contacts[i].get_darkest_secret() << std::endl;
+}
+
+void PhoneBook::search()
+{
+    std::string s;
+    print_all_contact();
+    std::cout << "Enter index to display: ";
+    std::getline(std::cin,s);
+    if (s.size()  != 1) 
+    {
+        std::cout << "Invalid index" << std::endl;
+        return ;
+    }
+    else
+        print_cantact(static_cast<int>(s[0] - '0' - 1));  
 }
 

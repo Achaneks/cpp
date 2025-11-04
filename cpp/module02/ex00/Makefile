@@ -1,18 +1,19 @@
-SRC= $(*.cpp)
-NAME= canon
-OBJ= $(SRC:.cpp=.o)
+NAME = fixed
+
+SRC = main.cpp Fixed.cpp
+OBJ = $(SRC:.cpp=.o)
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	c++ -Wall -Wextra -Werror -std=c++98 $(OBJ) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	rm -rf $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re

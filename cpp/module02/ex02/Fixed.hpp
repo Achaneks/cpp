@@ -5,29 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 15:34:37 by achanek           #+#    #+#             */
-/*   Updated: 2025/11/05 10:36:56 by achanek          ###   ########.fr       */
+/*   Created: 2025/11/05 11:01:55 by achanek           #+#    #+#             */
+/*   Updated: 2025/11/05 11:04:54 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
-# define FIXED_HPP
+#define FIXED_HPP
+#include <iostream>
 
-# include <iostream>
 
-class Fixed {
-private:
-    int _value;
-    static const int _bits = 8;
-
-public:
-    Fixed();      
-    Fixed(const Fixed& other);
-    Fixed& operator=(const Fixed& other);
-    ~Fixed();        
-
-    int getRawBits(void) const;
-    void setRawBits(int const raw);
-};
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:03:47 by achanek           #+#    #+#             */
-/*   Updated: 2025/10/28 11:02:09 by achanek          ###   ########.fr       */
+/*   Updated: 2025/11/08 15:45:05 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void PhoneBook::print_cantact(int i)
 void PhoneBook::search()
 {
     std::string s;
+    
     print_all_contact();
     std::cout << "Enter index to display: ";
     std::getline(std::cin,s);

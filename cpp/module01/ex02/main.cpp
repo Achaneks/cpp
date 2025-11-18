@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 22:36:10 by achanek           #+#    #+#             */
-/*   Updated: 2025/11/01 22:37:01 by achanek          ###   ########.fr       */
+/*   Updated: 2025/11/15 15:02:56 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ int main() {
 
     std::cout << std::endl;
 
-    
     std::cout << "Value of str:               " << str << std::endl;
     std::cout << "Value pointed by PTR:       " << *stringPTR << std::endl;
     std::cout << "Value pointed by REF:       " << stringREF << std::endl;
-
+    
     return 0;
 }

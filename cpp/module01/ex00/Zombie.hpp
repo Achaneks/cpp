@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 21:14:13 by achanek           #+#    #+#             */
-/*   Updated: 2025/11/01 21:48:09 by achanek          ###   ########.fr       */
+/*   Updated: 2025/11/15 09:52:47 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,8 @@ public:
     ~Zombie();
     void announce(void);
 };
+
+Zombie* newZombie(std::string name);
+void    randomChump(std::string name);
 
 #endif

@@ -1,23 +1,19 @@
 NAME = brain
-
-CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-
 SRC = main.cpp
-OBJ = $(SRC:.cpp=.o)
 
-RM = rm -f
+CXX = c++ -Wall -Wextra -Werror -std=c++98
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+	$(CXX) -o $(NAME) $(OBJ)
 
 clean:
-	$(RM) $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

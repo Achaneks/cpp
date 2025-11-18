@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 22:18:38 by achanek           #+#    #+#             */
-/*   Updated: 2025/11/01 22:18:41 by achanek          ###   ########.fr       */
+/*   Updated: 2025/11/18 14:45:01 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ public:
     void setName(std::string name);
     void announce(void) const;
 };
+Zombie* zombieHorde(int N, std::string name);
 
 #endif

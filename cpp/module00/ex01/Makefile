@@ -1,6 +1,6 @@
 SRC = *.cpp
 NAME = repertory
-CC = c++ -Wall -Wextra -Werror -std=c++98 -g
+CC = c++ -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 

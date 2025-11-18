@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:03:47 by achanek           #+#    #+#             */
-/*   Updated: 2025/11/08 15:45:05 by achanek          ###   ########.fr       */
+/*   Updated: 2025/11/10 09:25:54 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,29 +49,31 @@ void PhoneBook::add_contact()
     std::string n_name;
     std::string p_number;
     std::string d_secret;
-    std::cout << "First name : ";
-    std::getline(std::cin,f_name);
-    std::cout << "Last name : ";
-    std::getline(std::cin,l_name);
-    std::cout << "Nickname : ";
-    std::getline(std::cin,n_name);
-    std::cout << "Phone nunber : ";
-    std::getline(std::cin,p_number);
-    std::cout << "Darkest secret : ";
-    std::getline(std::cin,d_secret);
+    
+    std::cout << "First name: ";
+    if (!std::getline(std::cin, f_name)) return;
+    std::cout << "Last name: ";
+    if (!std::getline(std::cin, l_name)) return;
+    std::cout << "Nickname: ";
+    if (!std::getline(std::cin, n_name)) return;
+    std::cout << "Phone number: ";
+    if (!std::getline(std::cin, p_number)) return;
+    std::cout << "Darkest secret: ";
+    if (!std::getline(std::cin, d_secret)) return;
+    
     contacts[next].set_first_name(f_name);
     contacts[next].set_last_name(l_name);
     contacts[next].set_nick_name(n_name);
     contacts[next].set_phone_number(p_number);
     contacts[next].set_darkest_secret(d_secret);
-    next = next % 8 + 1;
+    next = (next + 1) % 8;
     if (size < 8)
         size++;
 }
 
 void PhoneBook::print_cantact(int i)
 {
-    if (i < 0 || i >= size)
+    if ( i < 0 || i >= size)
     {
         std::cout << "invalide index\n";
         return ;
@@ -89,8 +91,8 @@ void PhoneBook::search()
     
     print_all_contact();
     std::cout << "Enter index to display: ";
-    std::getline(std::cin,s);
-    if (s.size()  != 1) 
+    if (!std::getline(std::cin, s)) return;
+    if (s.size()  != 1 ) 
     {
         std::cout << "Invalid index" << std::endl;
         return ;

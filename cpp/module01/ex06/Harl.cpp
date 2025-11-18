@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 14:10:57 by achanek           #+#    #+#             */
-/*   Updated: 2025/11/03 14:26:52 by achanek          ###   ########.fr       */
+/*   Updated: 2025/11/18 16:34:10 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,19 @@ void Harl::complain(std::string level) {
     }
 
     switch (index) {
-        case 0:
-            this->debug();
-            break;
-        case 1:
-            this->info();
-            break;
-        case 2:
+		case 0:
+			this->debug();
+		//fall through
+		case 1:
+			this->info();
+		// fall through
+		case 2:
             this->warning();
-            break;
-        case 3:
-            this->error();
-            break;
-        default:
+		//fall through
+		case 3:
+			this->error();
+			break;
+		default:
             std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
     }
 }

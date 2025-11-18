@@ -1,15 +1,12 @@
 NAME = sed_is_for_losers
-
-CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-
-SRC = main.cpp Replace.cpp
+SRC = main.cpp replace.cpp
+CXX = c++ -Wall -Wextra -Werror -std=c++98
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJ)
+	$(CXX) -o $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)

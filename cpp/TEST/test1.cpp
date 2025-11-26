@@ -2,21 +2,22 @@
 #include <fstream>
 #include <string>
 
-int sum(int a,int b)
+class test {
+    private : 
+        static int b;
+    public :
+        test() {};
+        int ga() {return b;}
+        void ttt(){std::cout << this << std::endl;}
+
+};
+
+int test::b = 10;
+
+int main()
 {
-    return a + b;
-}
-
-int ft_m(int a,int b)
-{
-    return (a * b);
-}
-
-
-int main(int ac , char *av[])
-{
-    int (*ptr_to_fun[2])(int a,int b) = {&sum,&ft_m};
-
-    std::cout << (ptr_to_fun[1])(8 ,6) << std::endl;
-
+    // int test::b = 20;
+    // test aa;
+    // aa.ttt();
+    std::cout << std::endl;
 }

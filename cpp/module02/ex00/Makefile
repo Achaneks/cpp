@@ -1,5 +1,4 @@
 NAME = fixed
-
 SRC = main.cpp Fixed.cpp
 OBJ = $(SRC:.cpp=.o)
 CXX = c++

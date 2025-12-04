@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 14:14:41 by achanek           #+#    #+#             */
-/*   Updated: 2025/11/24 16:15:29 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/04 13:45:39 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ public:
     Fixed& operator=(const Fixed& other);
     
     int getRawBits(void) const;
-    void setRawBits(int const raw);
 
     float toFloat(void) const;
     int toInt(void) const;

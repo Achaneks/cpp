@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:34:33 by achanek           #+#    #+#             */
-/*   Updated: 2025/11/24 09:56:26 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/04 13:46:25 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,3 @@ int Fixed::getRawBits(void) const {
     return this->value;
 }
 
-void Fixed::setRawBits(int const raw) {
-    std::cout << "setRawBits member function called" << std::endl;
-    this->value = raw;
-}

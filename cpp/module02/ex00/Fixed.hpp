@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:34:37 by achanek           #+#    #+#             */
-/*   Updated: 2025/11/24 10:28:02 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/04 13:46:31 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ public:
     ~Fixed();
 
     int getRawBits(void) const;
-    void setRawBits(int const raw);
 };
 
 #endif

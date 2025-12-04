@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 15:34:40 by achanek           #+#    #+#             */
-/*   Updated: 2025/11/24 11:48:18 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/04 11:30:21 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,3 +24,6 @@ int main(void)
     std::cout << c.getRawBits() << std::endl;
     return 0;
 }
+
+
+

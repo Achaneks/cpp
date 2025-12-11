@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 18:25:46 by achanek           #+#    #+#             */
-/*   Updated: 2025/11/27 21:00:22 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/04 16:05:55 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class Point {
 		~Point();
         
 		Point&	operator=(Point const &rSym);
-		Point	operator-(Point const &rSym);
 		
 		Fixed const	getX() const;
 		Fixed const	getY() const;
@@ -34,6 +33,5 @@ class Point {
 		Fixed const	y;
 };
 
-std::ostream &	operator<<(std::ostream &o, Point const &rSym);
 
 #endif

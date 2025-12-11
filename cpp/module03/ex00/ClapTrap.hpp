@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 10:57:10 by achanek           #+#    #+#             */
-/*   Updated: 2025/11/07 11:11:35 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/09 15:35:32 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ public:
     ClapTrap &operator=(const ClapTrap &other);
     ~ClapTrap();        
 
-    /* behavior */
+
     void attack(const std::string &target);
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);

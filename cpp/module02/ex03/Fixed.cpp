@@ -6,45 +6,36 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 18:06:06 by achanek           #+#    #+#             */
-/*   Updated: 2025/12/04 10:41:54 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/04 15:38:23 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <cmath>
 
-Fixed::Fixed() : value(0) {
-    std::cout << "Default constructor called" << std::endl;
-}
+Fixed::Fixed() : value(0) {}
 
 Fixed::Fixed(const Fixed& other) {
-    std::cout << "Copy constructor called" << std::endl;
     this->value = other.getRawBits();
 }
 
 
+
 Fixed::Fixed(const int n) {
-    std::cout << "Int constructor called" << std::endl;
     this->value = n << bits;
 }
 
 Fixed::Fixed(const float f) {
-    std::cout << "Float constructor called" << std::endl;
     this->value = static_cast<int>(roundf(f * (1 << bits)));
 }
 Fixed::~Fixed() {
-    std::cout << "Destructor called" << std::endl;
 }
 
 
 int Fixed::getRawBits(void) const {
-    std::cout << "getRawBits member function called" << std::endl;
     return this->value;
 }
 
-void Fixed::setRawBits(int const raw) {
-    this->value = raw;
-}
 
 float Fixed::toFloat(void) const {
     return static_cast<float>(this->value) / static_cast<float>(1 << bits);
@@ -59,12 +50,13 @@ std::ostream& operator<<(std::ostream& os, const Fixed& f) {
     return os;
 }
 
+
 Fixed& Fixed::operator=(const Fixed& other) {
-    std::cout << "Copy assignment operator called" << std::endl;
     if (this != &other)
         this->value = other.getRawBits();
     return *this;
 }
+
 
 bool Fixed::operator>(const Fixed& other) const
 {
@@ -144,7 +136,7 @@ const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
     if (a < b)
         return a;
     else 
-        return b;   
+        return b;  
 }
 Fixed& Fixed::max(Fixed& a, Fixed& b)
 {
@@ -159,4 +151,5 @@ const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
         return b;
     else 
         return a;
+    
 }

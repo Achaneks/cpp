@@ -2,22 +2,47 @@
 #include <fstream>
 #include <string>
 
-class test {
-    private : 
-        static int b;
+class ClapTrap {
+    protected : 
+        std::string name;
+        int ep;
+        int hp;
+        int dmg;
     public :
-        test() {};
-        int ga() {return b;}
-        void ttt(){std::cout << this << std::endl;}
+        ClapTrap(std::string nam):name(nam) {
+            ep = 10;
+            hp = 10;
+            dmg = 0;
+        };
+        ClapTrap (sting )
+        void attack(const std::string& target){std::cout <<target << std::endl;};
+        void takeDamage(unsigned int amount){std::cout << "damage"<<std::endl};
+        void beRepaired(unsigned int amount){std};
+};
+class ScavTrap: virtual public ClapTrap {
 
+    public :
+        ScaveTrape(): ClapTrap()
+        };
+        void guardGate();
 };
 
-int test::b = 10;
+class FragTrap:public  ClapTrap{
+
+    public :
+        ScaveTrape(): ClapTrap()
+        };
+        void guardGate();
+};
+
+
+class DiamondTrap: virtual public FragTrap, public ScavTrap
+{
+
+}
 
 int main()
 {
-    // int test::b = 20;
-    // test aa;
-    // aa.ttt();
-    std::cout << std::endl;
+   test ana;
+    std::cout <<test::b << std::endl;
 }

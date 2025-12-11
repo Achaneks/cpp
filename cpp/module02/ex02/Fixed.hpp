@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 11:01:55 by achanek           #+#    #+#             */
-/*   Updated: 2025/11/26 17:29:24 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/04 14:26:10 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ public:
     Fixed(const float f);
 
     int getRawBits(void) const;
-    void setRawBits(int const raw);
 
     float toFloat(void) const;
     int toInt(void) const;

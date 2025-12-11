@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 10:57:13 by achanek           #+#    #+#             */
-/*   Updated: 2025/11/07 12:04:07 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/11 09:12:33 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,21 @@
 
 int main()
 {
-    ClapTrap a("Alpha");
-    ClapTrap b("Bravo");
+    ClapTrap a("anas");
+    ClapTrap b("k");
 
-    a.attack("target1");            // energy -1
-    a.takeDamage(3);                // hp -3
-    a.beRepaired(5);                // hp +5, energy -1
-
-    // simulate many attacks until energy runs out
+    a.attack("target1"); 
+    a.takeDamage(3);   
+    a.beRepaired(5);        
     for (int i = 0; i < 12; ++i)
-        a.attack("somebody");
+        a.attack("chablo");
 
-    // show copy & assignment
-    ClapTrap copy = a;             // copy constructor
+    ClapTrap copy = a;    
     ClapTrap assigned;
-    assigned = b;                  // copy assignment
-
-    // damage to zero
+    assigned = b;  
+    
     b.takeDamage(200);
-    b.beRepaired(10);              // should say cannot repair (destroyed)
+    b.beRepaired(10);
 
     return 0;
 }

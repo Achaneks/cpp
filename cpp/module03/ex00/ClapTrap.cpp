@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 10:57:07 by achanek           #+#    #+#             */
-/*   Updated: 2025/12/09 18:22:39 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/11 08:57:41 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,23 +68,22 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    if (hitPoints <= 0) {
+    if (hitPoints <= 0)
+    {
         std::cout << "ClapTrap " << name << " is already at 0 hit points." << std::endl;
         return;
     }
-
-    int damage = (int)(amount);
-    hitPoints -= damage;
+    hitPoints -= amount;
     if (hitPoints < 0)
         hitPoints = 0;
-
-    std::cout << "ClapTrap " << name << " takes " << damage
+    std::cout << "ClapTrap " << name << " takes " << amount
               << " points of damage! Remaining HP: " << hitPoints << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if (hitPoints <= 0) {
+    if (hitPoints <= 0)
+    {
         std::cout << "ClapTrap " << name << " cannot be repaired: no hit points (destroyed)!" << std::endl;
         return;
     }
@@ -92,12 +91,10 @@ void ClapTrap::beRepaired(unsigned int amount)
         std::cout << "ClapTrap " << name << " cannot repair: no energy left!" << std::endl;
         return;
     }
-
-    int heal = (int)(amount);
-    hitPoints += heal;
+    hitPoints += amount;
     energyPoints -= 1;
 
-    std::cout << "ClapTrap " << name << " repairs itself, gaining " << heal
+    std::cout << "ClapTrap " << name << " repairs itself, gaining " << amount
               << " hit points! Current HP: " << hitPoints << std::endl;
 }
 

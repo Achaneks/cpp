@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 09:13:19 by achanek           #+#    #+#             */
-/*   Updated: 2025/12/15 22:01:47 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/13 13:53:37 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
     std::cout << "ScavTrap " << this->name << " constructed!" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) { // ?????
     this->name = other.name;
     this->hitPoints = other.hitPoints;
     this->energyPoints = other.energyPoints;
@@ -60,7 +60,7 @@ void ScavTrap::attack(const std::string &target) {
         return;
     }
     this->energyPoints--;
-    std::cout << "ScavTrap " << this->name << "  attacks " << target
+    std::cout << "ScavTrap " << this->name << " viciously attacks " << target
               << ", causing " << this->attackDamage << " points of damage! (EP left: "
               << this->energyPoints << ")" << std::endl;
 }

@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/07 10:57:10 by achanek           #+#    #+#             */
-/*   Updated: 2025/12/15 21:42:28 by achanek          ###   ########.fr       */
+/*   Created: 2025/12/11 09:13:06 by achanek           #+#    #+#             */
+/*   Updated: 2025/12/11 09:21:59 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
@@ -18,23 +19,23 @@
 
 class ClapTrap
 {
-private:
-    std::string name;
-    int hitPoints;
-    int energyPoints;
-    int attackDamage;
+    protected:
+        std::string name;
+        int hitPoints;
+        int energyPoints;
+        int attackDamage;
 
-public:
-    ClapTrap();
-    ClapTrap(const std::string &name);
-    ClapTrap(const ClapTrap &other);
-    ClapTrap &operator=(const ClapTrap &other);
-    ~ClapTrap();     
+    public:
+        ClapTrap();
+        ClapTrap(const std::string &name);
+        ClapTrap(const ClapTrap &other);
+        ClapTrap &operator=(const ClapTrap &other);
+        ~ClapTrap();        
 
 
-    void attack(const std::string &target);
-    void takeDamage(unsigned int amount);
-    void beRepaired(unsigned int amount);
+        void attack(const std::string &target);
+        void takeDamage(unsigned int amount);
+        void beRepaired(unsigned int amount);
 };
 
 #endif

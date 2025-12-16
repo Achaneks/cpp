@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/07 10:57:13 by achanek           #+#    #+#             */
-/*   Updated: 2025/12/11 09:12:33 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/15 21:43:25 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main()
 {
     ClapTrap a("anas");
-    ClapTrap b("k");
+    ClapTrap b("khalid");
 
     a.attack("target1"); 
     a.takeDamage(3);   

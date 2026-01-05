@@ -2,21 +2,25 @@
 #include <fstream>
 #include <string>
 
-class a{
-    public:
-        int var;
-        a(){std::cout <<"the deffault constructor for a" << std::endl;};
+class a {
+    protected:
+        char * name = new char(10);
+    public :
+        a(){std::cout << "a constructor called" << std::endl;};
+        virtual ~a(){delete name;std::cout << "a destructor called " << std::endl; };
+        virtual void ft_print_message() = 0;
+
 };
 class b: public a{
-    public:
-        b(){std::cout <<"the deffault constructor for b" << std::endl;};
-
+    char *next = new char(10);
+        public :
+    b(){std::cout << "b constructor called" << std::endl;};
+    ~b(){
+        delete next;
+        std::cout << "b destructor called " << std::endl; };
+    void ft_print_message(){std::cout << "hello how are you" << std::endl;}
 };
 
-class c: public b{};
-
 int main(){
-    // a t1;
-    // b t2;
-    c t3;
+    b first;
 }

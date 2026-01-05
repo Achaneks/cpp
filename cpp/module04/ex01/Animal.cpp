@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/17 22:33:14 by achanek           #+#    #+#             */
-/*   Updated: 2025/12/30 16:40:11 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/17 22:49:59 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ std::string Animal::getType() const
 
 void Animal::makeSound() const
 {
-    std::cout << "* Animal makes a generic sound " << std::endl;
+    std::cout << "* Animal makes a generic sound *" << std::endl;
 }

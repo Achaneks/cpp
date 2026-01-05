@@ -6,30 +6,34 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 09:13:13 by achanek           #+#    #+#             */
-/*   Updated: 2025/12/13 13:44:31 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/16 13:54:28 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
+#include <iostream>
 
 int main() {
-    std::cout << "=== Create FragTrap ===" << std::endl;
-    FragTrap a("Serena");
+    std::cout << "=== Creating DiamondTrap ===" << std::endl;
+    DiamondTrap d("Serena");
 
-    std::cout << "\n=== Attack ===" << std::endl;
-    a.attack("Target");
+    std::cout << "\n=== Attack (ScavTrap version) ===" << std::endl;
+    d.attack("Target");
 
-    std::cout << "\n=== High Five ===" << std::endl;
-    a.highFivesGuys();
+    std::cout << "\n=== Who Am I ===" << std::endl;
+    d.whoAmI();
 
     std::cout << "\n=== Copy Constructor ===" << std::endl;
-    FragTrap b(a);
+    DiamondTrap copy(d);
+    copy.whoAmI();
 
     std::cout << "\n=== Assignment Operator ===" << std::endl;
-    FragTrap c;
-    c = a;
+    DiamondTrap assign;
+    assign = d;
+    assign.whoAmI();
 
-    std::cout << "\n=== End of main ===" << std::endl;
+    std::cout << "\n=== End of main (destructors) ===" << std::endl;
     return 0;
 }
+
 

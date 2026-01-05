@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 11:03:47 by achanek           #+#    #+#             */
-/*   Updated: 2025/11/10 09:25:54 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/18 14:43:26 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,6 @@ void PhoneBook::search()
     else
         print_cantact(static_cast<int>(s[0] - '0' - 1));  
 }
+
+
 

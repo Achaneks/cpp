@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/11 09:13:22 by achanek           #+#    #+#             */
-/*   Updated: 2025/12/16 14:04:58 by achanek          ###   ########.fr       */
+/*   Created: 2025/12/17 22:33:23 by achanek           #+#    #+#             */
+/*   Updated: 2025/12/18 14:56:07 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
 
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-class ScavTrap: virtual public ClapTrap {
-    public :
-        ScavTrap();
-        ScavTrap(std::string name);
-        ScavTrap(const ScavTrap& other);
-        ScavTrap &operator=(const ScavTrap& other);
-        ~ScavTrap();
-        
-        void guardGate();
-        void attack(const std::string &target);
+class Cat : public Animal
+{
+private:
+    Brain* brain;
+
+public:
+    Cat();
+    Cat(const Cat& other);
+    Cat& operator=(const Cat& other);
+    virtual ~Cat();
+
+    virtual void makeSound() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 14:25:16 by achanek           #+#    #+#             */
-/*   Updated: 2025/12/13 14:28:55 by achanek          ###   ########.fr       */
+/*   Updated: 2025/12/16 14:04:39 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ DiamondTrap::DiamondTrap()
       name("DiamondTrap") {
 
     hitPoints = FragTrap::hitPoints;
-    energyPoints = ScavTrap::energyPoints;
+    energyPoints = 50;
     attackDamage = FragTrap::attackDamage;
 
     std::cout << "DiamondTrap " << name << " constructed (default)." << std::endl;
@@ -33,7 +33,7 @@ DiamondTrap::DiamondTrap(const std::string &name)
       name(name) {
 
     hitPoints = FragTrap::hitPoints;
-    energyPoints = ScavTrap::energyPoints;
+    energyPoints = 50;
     attackDamage = FragTrap::attackDamage;
 
     std::cout << "DiamondTrap " << name << " constructed." << std::endl;

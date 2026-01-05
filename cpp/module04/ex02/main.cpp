@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/11 09:13:22 by achanek           #+#    #+#             */
-/*   Updated: 2025/12/16 14:04:58 by achanek          ###   ########.fr       */
+/*   Created: 2025/12/17 22:33:31 by achanek           #+#    #+#             */
+/*   Updated: 2025/12/31 01:11:36 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+#include "Dog.hpp"
+#include "Cat.hpp"
 
-#include "ClapTrap.hpp"
+int main()
+{
+    Animal* animals[10];
 
-class ScavTrap: virtual public ClapTrap {
-    public :
-        ScavTrap();
-        ScavTrap(std::string name);
-        ScavTrap(const ScavTrap& other);
-        ScavTrap &operator=(const ScavTrap& other);
-        ~ScavTrap();
-        
-        void guardGate();
-        void attack(const std::string &target);
-};
+    for (int i = 0; i < 5; i++)
+        animals[i] = new Dog();
+    for (int i = 5; i < 10; i++)
+        animals[i] = new Cat();
 
-#endif
+    for (int i = 0; i < 10; i++)
+        delete animals[i];
+
+
+    return 0;
+}

@@ -6,12 +6,11 @@
 /*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 05:50:46 by achanek           #+#    #+#             */
-/*   Updated: 2026/01/08 01:05:20 by achanek          ###   ########.fr       */
+/*   Updated: 2026/01/08 01:11:05 by achanek          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade)
     : _name(name)
@@ -25,7 +24,8 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade)
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other)
     : _name(other._name), _grade(other._grade)
-{}
+{
+}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
@@ -35,8 +35,8 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 }
 
 Bureaucrat::~Bureaucrat()
-{}
-
+{
+}
 const std::string& Bureaucrat::getName() const
 {
     return _name;
@@ -77,6 +77,19 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& b)
     return out;
 }
 
-
-
-
+void Bureaucrat::signForm(AForm& f)
+{
+    try
+    {
+        f.beSigned(*this);
+        std::cout << _name << " signed " << f.getName() << std::endl;
+    }
+    catch (std::exception& e)
+    {
+        std::cout << _name << " couldn’t sign "
+                  << f.getName()
+                  << " because "
+                  << e.what()
+                  << std::endl;
+    }
+}

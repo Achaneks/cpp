@@ -1,21 +1,29 @@
 #include "PresidentialPardonForm.hpp"
+#include <iostream>
 
+// Constructors
+PresidentialPardonForm::PresidentialPardonForm()
+    : AForm("PresidentialPardonForm", 25, 5), _target("default") {}
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm",25,5) {}
-PresidentialPardonForm::PresidentialPardonForm(std::string target) :AForm("PresidentialPardonForm",25,5), target(target){}
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) : AForm(other), target(other.target){
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
+    : AForm("PresidentialPardonForm", 25, 5), _target(target) {}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other)
+    : AForm(other), _target(other._target) {}
+
+PresidentialPardonForm&
+PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
+{
+    if (this != &other)
+        _target = other._target;
+    return *this;
 }
-PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm &other){
-    if (&other != this)
-    {
-        AForm::operator=(other);
-        target = other.target;
-    }
-    return (*this);
-}
-PresidentialPardonForm::~PresidentialPardonForm(){}
 
-void PresidentialPardonForm::execute(Bureaucrat const & executor) const{
-    AForm::execute(executor);
-    std::cout << target << "has been pardoned by the president" << std::endl;
+PresidentialPardonForm::~PresidentialPardonForm() {}
+
+// Action
+void PresidentialPardonForm::executeAction() const
+{
+    std::cout << _target
+              << " has been pardoned by Zaphod Beeblebrox\n";
 }

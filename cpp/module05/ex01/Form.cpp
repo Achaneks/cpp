@@ -30,8 +30,7 @@ Form::Form(const Form& other)
       _signed(other._signed),
       _gradeToSign(other._gradeToSign),
       _gradeToExecute(other._gradeToExecute)
-{
-}
+{}
 
 Form& Form::operator=(const Form& other)
 {

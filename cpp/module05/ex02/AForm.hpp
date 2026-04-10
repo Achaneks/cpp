@@ -1,22 +1,9 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   AForm.hpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: achanek <achanek@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/06 16:08:43 by achanek           #+#    #+#             */
-/*   Updated: 2026/01/08 14:11:38 by achanek          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef AFORM_HPP
+#define AFORM_HPP
 
 #include <iostream>
 #include <string>
 #include <exception>
-// #include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
@@ -24,26 +11,34 @@ class AForm
 {
 private:
     const std::string _name;
-    bool              _signed;
-    const int         _gradeToSign;
-    const int         _gradeToExecute;
+    bool _isSigned;
+    const int _gradeToSign;
+    const int _gradeToExec;
 
 public:
-    AForm(const std::string& name, int gradeToSign, int gradeToExecute);
+    // Orthodox Canonical Form
+    AForm();
+    AForm(const std::string& name, int gradeToSign, int gradeToExec);
     AForm(const AForm& other);
     AForm& operator=(const AForm& other);
-    ~AForm();
+    virtual ~AForm();
 
+    // Getters
     const std::string& getName() const;
-    bool               isSigned() const;
-    int                getGradeToSign() const;
-    int                getGradeToExecute() const;
+    bool getIsSigned() const;
+    int getGradeToSign() const;
+    int getGradeToExec() const;
 
+    // Core functionality
     void beSigned(const Bureaucrat& b);
 
-    virtual void execute(Bureaucrat const & executor) const = 0;
-    // virtual void pAction() const = 0;
+    // 🔥 Template method
+    void execute(Bureaucrat const & executor) const;
 
+    // 🔥 Polymorphic behavior
+    virtual void executeAction() const = 0;
+
+    // Exceptions
     class GradeTooHighException : public std::exception
     {
     public:
@@ -56,13 +51,14 @@ public:
         const char* what() const throw();
     };
 
-    class FormNotSigned : public std::exception
+    class FormNotSignedException : public std::exception
     {
-        public:
-            const char* what() const throw();
+    public:
+        const char* what() const throw();
     };
 };
 
-std::ostream& operator<<(std::ostream& out, const AForm& f);
+// Operator overload
+std::ostream& operator<<(std::ostream& os, const AForm& f);
 
 #endif

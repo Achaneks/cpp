@@ -21,13 +21,13 @@ int main()
     std::cout << "===== TEST 1: VALID SIGNING =====" << std::endl;
     try
     {
-        Bureaucrat alice("Anas", 10);
+        Bureaucrat anas("Anas", 10);
         Form tax("TaxForm", 20, 30);
 
-        std::cout << alice << std::endl;
+        std::cout << anas << std::endl;
         std::cout << tax << std::endl;
 
-        alice.signForm(tax);
+        anas.signForm(tax);
 
         std::cout << tax << std::endl;
     }
@@ -39,13 +39,13 @@ int main()
     std::cout << "\n===== TEST 2: GRADE TOO LOW =====" << std::endl;
     try
     {
-        Bureaucrat bob("khalid", 100);
+        Bureaucrat khalid("khalid", 100);
         Form secret("SecretForm", 10, 20);
 
-        std::cout << bob << std::endl;
+        std::cout << khalid << std::endl;
         std::cout << secret << std::endl;
 
-        bob.signForm(secret);
+        khalid.signForm(secret);
 
         std::cout << secret << std::endl;
     }
@@ -67,12 +67,12 @@ int main()
     std::cout << "\n===== TEST 4: MULTIPLE BUREAUCRATS =====" << std::endl;
     try
     {
-        Bureaucrat boss("chablo", 1);
-        Bureaucrat intern("said", 150);
+        Bureaucrat chablo("chablo", 1);
+        Bureaucrat said("said", 150);
         Form contract("Contract", 50, 50);
 
-        intern.signForm(contract);
-        boss.signForm(contract);
+        chablo.signForm(contract);
+        said.signForm(contract);
     }
     catch (std::exception& e)
     {

@@ -16,7 +16,6 @@
 #include <iostream>
 #include <string>
 #include <exception>
-// #include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
@@ -38,19 +37,18 @@ public:
     bool               isSigned() const;
     int                getGradeToSign() const;
     int                getGradeToExecute() const;
-
-    void beSigned(const Bureaucrat& b);
+    void               beSigned(const Bureaucrat& b);
 
     class GradeTooHighException : public std::exception
     {
-    public:
-        const char* what() const throw();
+        public:
+            const char* what() const throw();
     };
 
     class GradeTooLowException : public std::exception
     {
-    public:
-        const char* what() const throw();
+        public:
+            const char* what() const throw();
     };
 };
 

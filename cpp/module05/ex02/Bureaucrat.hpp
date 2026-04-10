@@ -15,41 +15,49 @@
 
 #include <iostream>
 #include <string>
-#include <exception>
-#include "AForm.hpp"
 
+class AForm; // forward declaration
 
 class Bureaucrat
 {
-    private:
-        const std::string _name;
-        int _grade;
+private:
+    const std::string _name;
+    int _grade;
 
+public:
+    // Orthodox Canonical Form
+    Bureaucrat();
+    Bureaucrat(const std::string& name, int grade);
+    Bureaucrat(const Bureaucrat& other);
+    Bureaucrat& operator=(const Bureaucrat& other);
+    ~Bureaucrat();
+
+    // Getters
+    const std::string& getName() const;
+    int getGrade() const;
+
+    // Actions
+    void incrementGrade();
+    void decrementGrade();
+
+    void signForm(AForm& form) const;
+    void executeForm(AForm const & form) const;
+
+    // Exceptions
+    class GradeTooHighException : public std::exception
+    {
     public:
-        Bureaucrat(const std::string& name, int grade);
-        Bureaucrat(const Bureaucrat& other);
-        Bureaucrat& operator=(const Bureaucrat& other);
-        ~Bureaucrat();
+        const char* what() const throw();
+    };
 
-        const   std::string& getName() const;
-        int     getGrade() const;
-        void    incrementGrade();
-        void    decrementGrade();
-        void    signForm(AForm& f);
-
-        class GradeTooHighException : public std::exception
-        {
-            public:
-                const char* what() const throw();
-        };
-
-        class GradeTooLowException : public std::exception
-        {
-            public:
-                const char* what() const throw();
-        };
+    class GradeTooLowException : public std::exception
+    {
+    public:
+        const char* what() const throw();
+    };
 };
 
-std::ostream& operator<<(std::ostream& out, const Bureaucrat& b);
+// Operator overload
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
 
 #endif

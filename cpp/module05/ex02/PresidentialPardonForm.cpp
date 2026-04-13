@@ -1,7 +1,6 @@
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
 
-// Constructors
 PresidentialPardonForm::PresidentialPardonForm()
     : AForm("PresidentialPardonForm", 25, 5), _target("default") {}
 
@@ -21,7 +20,6 @@ PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
-// Action
 void PresidentialPardonForm::executeAction() const
 {
     std::cout << _target

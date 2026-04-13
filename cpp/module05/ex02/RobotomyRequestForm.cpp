@@ -2,7 +2,6 @@
 #include <iostream>
 #include <cstdlib>
 
-// Constructors
 RobotomyRequestForm::RobotomyRequestForm()
     : AForm("RobotomyRequestForm", 72, 45), _target("default") {}
 
@@ -22,7 +21,6 @@ RobotomyRequestForm::operator=(const RobotomyRequestForm& other)
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-// Action
 void RobotomyRequestForm::executeAction() const
 {
     std::cout << "Bzzzzzz... drilling noises...\n";

@@ -1,7 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-// Constructors
 ShrubberyCreationForm::ShrubberyCreationForm()
     : AForm("ShrubberyCreationForm", 145, 137), _target("default") {}
 
@@ -21,7 +20,6 @@ ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-// Action
 void ShrubberyCreationForm::executeAction() const
 {
     std::ofstream file((_target + "_shrubbery").c_str());

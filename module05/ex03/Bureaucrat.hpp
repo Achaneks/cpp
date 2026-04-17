@@ -16,7 +16,7 @@
 #include <iostream>
 #include <string>
 
-class AForm; // forward declaration
+class AForm; 
 
 class Bureaucrat
 {
@@ -25,25 +25,21 @@ private:
     int _grade;
 
 public:
-    // Orthodox Canonical Form
     Bureaucrat();
     Bureaucrat(const std::string& name, int grade);
     Bureaucrat(const Bureaucrat& other);
     Bureaucrat& operator=(const Bureaucrat& other);
     ~Bureaucrat();
 
-    // Getters
     const std::string& getName() const;
     int getGrade() const;
 
-    // Actions
     void incrementGrade();
     void decrementGrade();
 
     void signForm(AForm& form) const;
     void executeForm(AForm const & form) const;
 
-    // Exceptions
     class GradeTooHighException : public std::exception
     {
     public:
@@ -57,7 +53,6 @@ public:
     };
 };
 
-// Operator overload
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
 
 #endif

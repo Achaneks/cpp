@@ -11,8 +11,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
     : AForm(other), _target(other._target) {}
 
-RobotomyRequestForm&
-RobotomyRequestForm::operator=(const RobotomyRequestForm& other)
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other)
 {
     if (this != &other)
         _target = other._target;
@@ -23,7 +22,7 @@ RobotomyRequestForm::~RobotomyRequestForm() {}
 
 void RobotomyRequestForm::executeAction() const
 {
-    std::cout << "Bzzzzzz... drilling noises...\n";
+    std::cout << "Aaaaaaaa... drilling noises...\n";
 
     if (rand() % 2)
         std::cout << _target << " has been robotomized successfully\n";

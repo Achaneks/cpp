@@ -5,7 +5,7 @@
 
 int main()
 {
-    Bureaucrat boss("Boss", 1);
+    Bureaucrat boss("boss", 1);
 
     AForm* f1 = new ShrubberyCreationForm("home");
     AForm* f2 = new RobotomyRequestForm("Bender");

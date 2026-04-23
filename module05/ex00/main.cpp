@@ -12,111 +12,69 @@
 
 #include "Bureaucrat.hpp"
 
-static void printTitle(const std::string& title)
+static void printSection(const std::string& title)
 {
-    std::cout << "\n== " << title << " ==" << std::endl;
+    std::cout << "\n--- " << title << " ---" << std::endl;
+}
+
+static void tryCreate(const std::string& name, int grade)
+{
+    try
+    {
+        Bureaucrat b(name, grade);
+        std::cout << b << std::endl;
+    }
+    catch (const std::exception& e)
+    {
+        std::cout << name << ": " << e.what() << std::endl;
+    }
+}
+
+static void tryIncr(Bureaucrat& b)
+{
+    try
+    {
+        b.incrementGrade();
+        std::cout << b << std::endl;
+    }
+    catch (const std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
+}
+
+static void tryDecr(Bureaucrat& b)
+{
+    try
+    {
+        b.decrementGrade();
+        std::cout << b << std::endl;
+    }
+    catch (const std::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+    }
 }
 
 int main()
 {
-    printTitle("Valid construction and grade changes");
-    try
-    {
-        Bureaucrat bureaucrat("Anas", 42);
+    printSection("Normal use");
+    Bureaucrat Anas("Anas", 2);
+    std::cout << Anas << std::endl;
+    tryIncr(Anas);
+    tryDecr(Anas);
 
-        std::cout << bureaucrat << std::endl;
-        bureaucrat.incrementGrade();
-        std::cout << bureaucrat << std::endl;
-        bureaucrat.decrementGrade();
-        std::cout << bureaucrat << std::endl;
-    }
-    catch (std::exception& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+    printSection("Constructor checks");
+    tryCreate("Highest", 1);
+    tryCreate("Lowest", 150);
+    tryCreate("TooHigh", 0);
+    tryCreate("TooLow", 151);
 
-    printTitle("Constructor lower boundary");
-    try
-    {
-        Bureaucrat lowest("Lowest", 150);
-        std::cout << lowest << std::endl;
-    }
-    catch (std::exception& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-
-    printTitle("Constructor upper boundary");
-    try
-    {
-        Bureaucrat highest("Highest", 1);
-        std::cout << highest << std::endl;
-    }
-    catch (std::exception& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-
-    printTitle("Invalid constructor grades");
-    try
-    {
-        Bureaucrat tooHigh("TooHigh", 0);
-        std::cout << tooHigh << std::endl;
-    }
-    catch (std::exception& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-    try
-    {
-        Bureaucrat tooLow("TooLow", 151);
-        std::cout << tooLow << std::endl;
-    }
-    catch (std::exception& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-
-    printTitle("Increment boundary");
-    try
-    {
-        Bureaucrat top("Top", 1);
-        top.incrementGrade();
-        std::cout << top << std::endl;
-    }
-    catch (std::exception& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-
-    printTitle("Decrement boundary");
-    try
-    {
-        Bureaucrat bottom("Bottom", 150);
-        bottom.decrementGrade();
-        std::cout << bottom << std::endl;
-    }
-    catch (std::exception& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
-
-    printTitle("Copy and assignment");
-    try
-    {
-        Bureaucrat original("Original", 73);
-        Bureaucrat copy(original);
-        Bureaucrat assigned("Assigned", 120);
-
-        assigned = original;
-        std::cout << original << std::endl;
-        std::cout << copy << std::endl;
-        std::cout << assigned << std::endl;
-    }
-    catch (std::exception& e)
-    {
-        std::cout << e.what() << std::endl;
-    }
+    printSection("Boundary checks");
+    Bureaucrat top("Top", 1);
+    Bureaucrat bottom("Bottom", 150);
+    tryIncr(top);
+    tryDecr(bottom);
 
     return 0;
 }

@@ -1,4 +1,0 @@
-
-
-- why what return char *str not std::string ?
-- who hold ather childe or parnent ?

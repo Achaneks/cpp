@@ -11,7 +11,7 @@ int main()
 
     AForm* rrf;
 
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
 
     if (rrf)
     {

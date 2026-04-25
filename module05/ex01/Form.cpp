@@ -13,6 +13,7 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
+Form::Form() : _name("default"), _signed(false), _gradeToSign(150), _gradeToExecute(150) {}
 
 Form::Form(const std::string& name, int gradeToSign, int gradeToExecute)
     : _name(name),

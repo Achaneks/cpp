@@ -61,6 +61,11 @@
     "queue": "cpp",
     "ranges": "cpp"
   },
+  "editor.detectIndentation": false,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+
+  
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
   "C_Cpp_Runner.debuggerPath": "gdb",

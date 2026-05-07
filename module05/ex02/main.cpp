@@ -2,9 +2,12 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include <ctime>
+#include <cstdlib>
 
 int main()
 {
+    std::srand(std::time(0));
     Bureaucrat boss("boss", 1);
 
     AForm* f1 = new ShrubberyCreationForm("home");

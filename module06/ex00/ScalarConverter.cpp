@@ -17,10 +17,10 @@ void ScalarConverter::convert(const std::string &literal){
     if (literal.size() == 1 && !isdigit(literal[0]))
     {
         char c = literal[0];
-        std::cout << "char : " << c << std::endl;
+        std::cout << "char : " << "'" << c << "'"<<  std::endl;
         std::cout << "int : "<< static_cast<int>(c) << std::endl;
-        std::cout << "char : " << static_cast<float>(c)<< ".0f"<< std::endl;
-        std::cout << "char : " << static_cast<double>(c)<< ".0"<< std::endl;
+        std::cout << "float : " << static_cast<float>(c)<< ".0f"<< std::endl;
+        std::cout << "double : " << static_cast<double>(c)<< ".0"<< std::endl;
         return ;
     }
     size_t i = 0;
@@ -36,9 +36,9 @@ void ScalarConverter::convert(const std::string &literal){
         else 
             break;
     }
-    char *str;
-    double var = strtod(literal.c_str(), &str);
-    if (*str && (*str != 'f' || *(str + 1))){
+    char *end;
+    double var = strtod(literal.c_str(), &end);
+    if (*end && (*end != 'f' || *(end + 1))){
          std::cerr << "invalid input" << std::endl;
         return;
     }
@@ -51,7 +51,7 @@ void ScalarConverter::convert(const std::string &literal){
         std::cout << "non displayable" << std::endl;
     }
     else 
-        std::cout << "'" << static_cast<char>(var) << std::endl;
+        std::cout << "'" << static_cast<char>(var) << "'" << std::endl;
     
     std::cout << "int : ";
     if (std::isnan(var) || std::isinf(var) || var < INT_MIN || var > INT_MAX){
@@ -65,11 +65,3 @@ void ScalarConverter::convert(const std::string &literal){
 }
 
 
-/// ""
-/// "a" ou "*" size 1 non digit
-/// 122f
-/// "38.5" ou "115.5f" valid
-// "jdshfksd" ou "47.5fgg" non valid
-/// 
-
-/// strtod(c_str, **) 

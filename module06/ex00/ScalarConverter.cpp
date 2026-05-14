@@ -63,5 +63,3 @@ void ScalarConverter::convert(const std::string &literal){
     std::cout << "float : " << std::fixed << std::setprecision(2) << static_cast<float>(var) << "f" << std::endl;
     std::cout << "double : " << var << std::endl;
 }
-
-

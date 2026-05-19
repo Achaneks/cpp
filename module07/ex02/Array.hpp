@@ -43,7 +43,6 @@ class Array
                         array[i] = other.array[i];
                 }
             }
-
             return *this;
         }
 

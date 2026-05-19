@@ -19,9 +19,14 @@ int main()
         Array<int> copy(numbers);
 
         copy[0] = 999;
+        for (unsigned int i = 0; i < numbers.size(); i++)
+            std::cout << numbers[i] << std::endl;
 
         std::cout << "Original first element: " << numbers[0] << std::endl;
+        for (unsigned int i = 0; i < copy.size(); i++)
+            std::cout << copy[i] << std::endl;
         std::cout << "Copy first element: " << copy[0] << std::endl;
+        
 
         std::cout << "\n........... STRING ARRAY .........." << std::endl;
 

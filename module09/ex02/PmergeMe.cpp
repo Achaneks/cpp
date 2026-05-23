@@ -65,6 +65,53 @@ void PmergeMe::binaryInsertDeque(std::deque<int>& container,int value)
     container.insert(pos, value);
 }
 
+std::vector<size_t> PmergeMe::generateJacobsthal(size_t size)
+{
+    std::vector<size_t> order;
+
+    if (size == 0)
+        return order;
+    std::vector<size_t> jacob;
+    jacob.push_back(1);
+
+    size_t a = 1;
+    size_t b = 1;
+
+    while (b < size)
+    {
+        jacob.push_back(b);
+        size_t next = b + 2 * a;
+        a = b;
+        b = next;
+    }
+
+    std::vector<bool> used(size, false);
+    for (size_t i = 0; i < jacob.size(); i++)
+    {
+        size_t end = jacob[i];
+        if (end >= size)
+            end = size - 1;
+        while (true)
+        {
+            if (!used[end])
+            {
+                order.push_back(end);
+                used[end] = true;
+            }
+            if (end == 0)
+                break;
+            end--;
+        }
+    }
+    for (size_t i = 0; i < size; i++)
+    {
+        if (!used[i])
+            order.push_back(i);
+    }
+    return order;
+}
+
+
 
 
 std::vector<int> PmergeMe::fordJohnsonVector(std::vector<int> data)
@@ -89,12 +136,17 @@ std::vector<int> PmergeMe::fordJohnsonVector(std::vector<int> data)
     if (odd)
         leftover = data.back();
     main = fordJohnsonVector(main);
-    for (size_t i = 0; i < pend.size(); i++)
-        binaryInsertVector(main,pend[i]);
+
+        
+    std::vector<size_t> order = generateJacobsthal(pend.size());
+    for (size_t i = 0; i < order.size(); i++)
+        binaryInsertVector(main,pend[order[i]]);
     if (odd)
         binaryInsertVector(main,leftover);
     return main;
 }
+
+
 
 
 
@@ -119,9 +171,9 @@ std::deque<int> PmergeMe::fordJohnsonDeque(std::deque<int> data)
     if (odd)
         leftover = data.back();
     main = fordJohnsonDeque(main);
-
-    for (size_t i = 0; i < pend.size(); i++)
-        binaryInsertDeque(main,pend[i]);
+    std::vector<size_t> order = generateJacobsthal(pend.size());
+    for (size_t i = 0; i < order.size(); i++)
+        binaryInsertDeque(main,pend[order[i]]);
     if (odd)
         binaryInsertDeque(main,leftover);
     return main;

@@ -21,6 +21,7 @@ private:
     bool isValidNumber(const std::string& str);
     std::vector<int> fordJohnsonVector(std::vector<int> data);
     void binaryInsertVector(std::vector<int>& container,int value);
+    std::vector<size_t> generateJacobsthal(size_t size);
     std::deque<int> fordJohnsonDeque(std::deque<int> data);
     void binaryInsertDeque(std::deque<int>& container, int value);
     void printBefore() const;
